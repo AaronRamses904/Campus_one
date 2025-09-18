@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro | CAMPUS-ONE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="registro-container">
+    <div class="form-registro">
+      <h2>Registro de Cuenta</h2>
+      <p>Completa los siguientes campos para crear tu cuenta</p>
+
+      <form action="registro.php" method="POST">
+        <label for="nombre">Nombre*</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellido">Apellido*</label>
+        <input type="text" id="apellido" name="apellido" required>
+
+        <label for="fecha_nacimiento">Fecha de Nacimiento*</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+
+        <label for="correo">Correo*</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="id_usuario">ID Usuario*</label>
+        <input type="text" id="id_usuario" name="id_usuario" required>
+
+        <label for="password">Contraseña*</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Crear Cuenta</button>
+      </form>
+
+      <p class="registro-pequeño">
+        ¿Ya tienes cuenta?
+        <a href="index.html" class="link-pequeño">Inicia Sesión</a>
+      </p>
+    </div>
+  </section>
+</body>
+</html>
+
+
+
+

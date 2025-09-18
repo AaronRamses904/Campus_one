@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAMPUS-ONE | Inicio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav-left">
+      <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+    </div>
+    <div class="nav-center">CAMPUS-ONE</div>
+    <div class="nav-right"></div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Bienvenido a CAMPUS-ONE</h1>
+    <p>Tu espacio de aprendizaje y conexión</p>
+    <a href="REGISTER/index.html" class="btn-hero">INICIA SESION</a>
+  </section>
+
+  <!-- Cards de navegación -->
+  <section class="cards">
+    <div class="card">
+      <h2>Registro</h2>
+      <p>Crea tu cuenta y únete a la comunidad.</p>
+      <a href="REGISTER/registro.html" class="btn-card">Ir</a>
+    </div>
+    <div class="card">
+      <h2>Cursos</h2>
+      <p>Explora todo el contenido educativo disponible.</p>
+      <a href="CURSOS/index.html" class="btn-card">Ir</a>
+    </div>
+    <div class="card">
+      <h2>Detalles</h2>
+      <p>Consulta la información detallada de cada curso.</p>
+      <a href="DETALLES/index.html" class="btn-card">Ir</a>
+    </div>
+    <div class="card">
+      <h2>Contacto</h2>
+      <p>¿Dudas o comentarios? Escríbenos aquí.</p>
+      <a href="CONTACTOS/index.html" class="btn-card">Ir</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="current-year"></span> CAMPUS-ONE. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMPUS-ONE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Encabezado con íconos -->
+  <header>
+    <div class="nav-left">
+      <!-- 🔙 Icono de la casa que lleva al inicio -->
+      <a href="../inicio.html" title="Volver al inicio">
+        <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="nav-center">CAMPUS-ONE</div>
+    <div class="nav-right">
+      <!-- Icono campana -->
+      <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 002 2zm6-6V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 10-3 0v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+      </svg>
+      <!-- Icono menú -->
+      <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7 10h10v2H7v-2zm0 4h7v2H7v-2z"/>
+      </svg>
+    </div>
+  </header>
+
+  <!-- Galería de imágenes -->
+  <div class="gallery">
+    <div class="grid-item" onclick="toggleText(this)">
+      <img src="imagenes/xd1.png" alt="Imagen 1">
+      <div class="overlay">
+        <textarea placeholder="Escribe aquí..."></textarea>
+      </div>
+    </div>
+    <div class="grid-item" onclick="toggleText(this)">
+      <img src="imagenes/xd2.jpg" alt="Imagen 2">
+      <div class="overlay">
+        <textarea placeholder="Escribe aquí..."></textarea>
+      </div>
+    </div>
+    <div class="grid-item" onclick="toggleText(this)">
+      <img src="imagenes/xd3.webp" alt="Imagen 3">
+      <div class="overlay">
+        <textarea placeholder="Escribe aquí..."></textarea>
+      </div>
+    </div>
+    <div class="grid-item" onclick="toggleText(this)">
+      <img src="imagenes/xd4.jpg" alt="Imagen 4">
+      <div class="overlay">
+        <textarea placeholder="Escribe aquí..."></textarea>
+      </div>
+    </div>
+    <div class="grid-item" onclick="toggleText(this)">
+      <img src="imagenes/xd5.jpg" alt="Imagen 5">
+      <div class="overlay">
+        <textarea placeholder="Escribe aquí..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página con copyright -->
+  <footer>
+    <p>&copy; <span id="current-year"></span> CAMPUS-ONE. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
