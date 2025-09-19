@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./:/var/www/html
+      - ./src:/var/www/html      # el codigo que registra todo mi php y el index
     depends_on:
       - db
 
@@ -20,11 +20,11 @@ services:
       MYSQL_DATABASE: mi_basedatos
       MYSQL_USER: usuario
       MYSQL_PASSWORD: pass123
-      
     ports:
-      - "3307:3307"
+      - "3307:3306"              # mi contenedor de 3307:3306
     volumes:
       - db_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d   # mi base de datos sql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -39,5 +39,6 @@ services:
 
 volumes:
   db_data:
+
 
 
