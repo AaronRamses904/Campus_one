@@ -20,6 +20,7 @@ services:
       MYSQL_DATABASE: mi_basedatos
       MYSQL_USER: usuario
       MYSQL_PASSWORD: pass123
+      
     ports:
       - "3307:3307"
     volumes:
