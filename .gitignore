@@ -1,0 +1,10 @@
+.Ds_Store
+cat > .gitignore << 'EOF'
+.Ds_Store
+Tumbs.db
+.vscode/
+.idea/
+node_modules/
+vendor/
+*.sql
+*.swp
