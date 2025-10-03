@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssssss", $id_usuario, $nombre, $apellido, $fecha_nacimiento, $correo, $passwordHash);
 
     if ($stmt->execute()) {
-        echo "✅ Registro exitoso. <a href=' frontend/REGISTER/index.html'>Inicia sesión aquí</a>";
+        echo "✅ Registro exitoso. <a href='.frontend/REGISTER/index.html'>Inicia sesión aquí</a>";
     } else {
         echo "❌ Error en el registro: " . $stmt->error;
     }
