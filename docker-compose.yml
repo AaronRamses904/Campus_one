@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./:/var/www/back      # el codigo que registra todo mi php y el index
+      - ./:/var/www/frontend      # el codigo que registra todo mi php y el index
     depends_on:
       - db
 
