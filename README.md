@@ -5,7 +5,7 @@ dcoker-compose build ''''
 ## Base de datos
 
 Este proyecto usa **MySQL** como base de datos.  
-La base se crea automáticamente con Docker (`mi_basedatos`), y las tablas se generan a partir del archivo [`sql/tablas.sql`](./sql/init.sql).
+La base se crea automáticamente con Docker (`mi_basedatos`), y las tablas se generan a partir del archivo [`sql/init.sql`](./sql/init.sql).
 
 ### Tabla: `usuarios`
 sql
