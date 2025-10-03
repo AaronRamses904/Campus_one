@@ -10,4 +10,4 @@ RUN a2enmod rewrite
 COPY ./apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Copiar el proyecto al contenedor
-COPY . /var/www/html/
+COPY . /var/www/frontend/
