@@ -1,0 +1,117 @@
+/* Reset general */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  display: flex;            /* <--- Flexbox para organizar verticalmente */
+  flex-direction: column;   /* <--- Columnas: header + contenido + footer */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.icono-nav {
+  width: 28px;
+  height: 28px;
+  fill: white;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url("imagenes/xd1.png") center/cover no-repeat;
+  color: white;
+  flex: 1 0 auto; /* <--- Hace que el contenido crezca y empuje el footer */
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin: 0 0 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-hero {
+  background: #25d366;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.btn-hero:hover {
+  background: #1da851;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: auto;
+  flex: 1 0 auto; /* <--- También empuja el footer si hay pocas cards */
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h2 {
+  margin: 0 0 10px;
+}
+
+.card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.btn-card {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-card:hover {
+  background: #25d366;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  flex-shrink: 0; /* <--- Evita que se encoja */
+}
