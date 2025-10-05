@@ -3,64 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Inicio de Sesión | CAMPUS-ONE</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>CAMPUS-ONE | Inicio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Encabezado con íconos -->
+  <!-- Header -->
   <header>
     <div class="nav-left">
-      <!-- 🔙 Icono de la casa que lleva al inicio -->
-      <a href="../inicio.html" title="Volver al inicio">
-        <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-        </svg>
-      </a>
+      <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
     </div>
     <div class="nav-center">CAMPUS-ONE</div>
-    <div class="nav-right">
-      <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 002 2zm6-6V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 10-3 0v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
-      </svg>
-      <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M7 10h10v2H7v-2zm0 4h7v2H7v-2z"/>
-      </svg>
-    </div>
+    <div class="nav-right"></div>
   </header>
 
-  <!-- Franja blanca con imagen de fondo -->
-  <section class="banner">
-    <!-- Fondo en CSS -->
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Bienvenido a CAMPUS-ONE</h1>
+    <p>Tu espacio de aprendizaje y conexión</p>
+    <a href="REGISTER/index.html" class="btn-hero">INICIA SESION</a>
   </section>
 
-  <!-- Formulario -->
-  <section class="login-bottom">
-    <div class="form-box">
-      <h2>¡BIENVENIDO!</h2>
-      <p>Ingresa tus datos para iniciar sesión</p>
-      
-      <!-- ✅ Ahora apunta a login.php -->
-      <form action="/back/login.php" method="POST">
-        <label for="id_usuario">Usuario (ID Usuario)</label>
-        <input type="text" id="id_usuario" name="id_usuario" required />
-
-        <label for="password">Contraseña*</label>
-        <input type="password" id="password" name="password" required />
-
-        <button type="submit">Iniciar Sesión</button>
-      </form>
-      
-      <p class="registro-pequeño">
-        ¿No tienes cuenta?
-        <a href="registro.html" class="link-pequeño">Registrarse</a>
-      </p>
+  <!-- Cards de navegación -->
+  <section class="cards">
+    <div class="card">
+      <h2>Registro</h2>
+      <p>Crea tu cuenta y únete a la comunidad.</p>
+      <a href="REGISTER/registro.html" class="btn-card">Ir</a>
+    </div>
+    <div class="card">
+      <h2>Cursos</h2>
+      <p>Explora todo el contenido educativo disponible.</p>
+      <a href="CURSOS/index.html" class="btn-card">Ir</a>
+    </div>
+    <div class="card">
+      <h2>Detalles</h2>
+      <p>Consulta la información detallada de cada curso.</p>
+      <a href="DETALLES/index.html" class="btn-card">Ir</a>
+    </div>
+    <div class="card">
+      <h2>Contacto</h2>
+      <p>¿Dudas o comentarios? Escríbenos aquí.</p>
+      <a href="CONTACTOS/index.html" class="btn-card">Ir</a>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="current-year"></span> CAMPUS-ONE. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
 
 
 
