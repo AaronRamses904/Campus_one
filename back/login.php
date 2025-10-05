@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['correo'] = $row['correo'];
 
             echo "✅ Bienvenido " . $row['nombre'] . " " . $row['apellido'] .
-                ". <a href='frontend/inicio.html'>Ir al inicio</a>";
+                ". <a href='../frontend/inicio.html'>Ir al inicio</a>";
             exit();
         } else {
             echo "❌ Contraseña incorrecta.";
