@@ -1,39 +1,59 @@
 <?php
-// Datos de conexión a MySQL (según docker-compose)
-$servername = "db";
-$username = "usuario";
-$password = "pass123";
-$dbname = "mi_basedatos";
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Content-Type: application/json");
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Ruta del archivo JSON local
+$jsonFile = __DIR__ . "/data/usuarios.json";
 
-// Verificar conexión
-if ($conn->connect_error) {
-    die("❌ Error en la conexión: " . $conn->connect_error);
+// Leer datos del formulario
+$data = json_decode(file_get_contents("php://input"), true);
+
+$id_usuario = $data["id_usuario"] ?? null;
+$correo = $data["correo"] ?? null;
+$password = $data["password"] ?? null;
+
+if (!$id_usuario || !$correo || !$password) {
+    echo json_encode(["status" => "error", "message" => "Faltan datos"]);
+    exit;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_usuario = $_POST['id_usuario'];
-    $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
-    $fecha_nacimiento = $_POST['fecha_nacimiento'];
-    $correo = $_POST['correo'];
-    $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+// Crear el archivo si no existe
+if (!file_exists($jsonFile)) {
+    file_put_contents($jsonFile, json_encode([], JSON_PRETTY_PRINT));
+}
 
-    // Consulta preparada (sin 'id')
-    $stmt = $conn->prepare("INSERT INTO usuarios 
-        (id_usuario, nombre, apellido, fecha_nacimiento, correo, password) 
-        VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $id_usuario, $nombre, $apellido, $fecha_nacimiento, $correo, $passwordHash);
+// Leer usuarios actuales
+$usuarios = json_decode(file_get_contents($jsonFile), true);
 
-    if ($stmt->execute()) {
-        echo "✅ Registro exitoso. <a href='../frontend/REGISTER/index.html'>Inicia sesión aquí</a>";
-    } else {
-        echo "❌ Error en el registro: " . $stmt->error;
+// Validar si el usuario ya existe
+foreach ($usuarios as $u) {
+    if ($u["id_usuario"] === $id_usuario || $u["correo"] === $correo) {
+        echo json_encode(["status" => "error", "message" => "Usuario o correo ya registrado"]);
+        exit;
     }
-
-    $stmt->close();
 }
 
-$conn->close();
+// Agregar nuevo usuario
+$usuarios[] = [
+    "id_usuario" => $id_usuario,
+    "correo" => $correo,
+    "password" => password_hash($password, PASSWORD_DEFAULT)
+];
+
+// Guardar localmente
+file_put_contents($jsonFile, json_encode($usuarios, JSON_PRETTY_PRINT));
+
+// Subir automáticamente a S3 (requiere AWS CLI configurado)
+$bucket = "campus-one-datos";
+$cmd = "aws s3 cp " . escapeshellarg($jsonFile) . " s3://$bucket/usuarios.json";
+shell_exec($cmd);
+
+// Respuesta final
+echo json_encode(["status" => "success", "message" => "Usuario registrado y sincronizado con S3"]);
 ?>
+
+
+
+
+
