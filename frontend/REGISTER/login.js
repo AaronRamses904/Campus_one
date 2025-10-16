@@ -9,7 +9,8 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
-    const response = await fetch("http://localhost:8083/login", {
+    // ✅ Usa localhost en lugar de mi_backend_node
+    const response = await fetch("http://localhost:8084/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -19,7 +20,8 @@ form.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       alert("✅ " + result.mensaje);
-      window.location.href = "../../frontend/inicio.html";
+      // Redirige a la página principal
+      window.location.href = "../principal.html";
     } else {
       alert("❌ " + (result.error || "Usuario o contraseña incorrectos"));
     }
@@ -28,3 +30,8 @@ form.addEventListener("submit", async (e) => {
     alert("❌ Error de conexión con el servidor.");
   }
 });
+
+
+
+
+

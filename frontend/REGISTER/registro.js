@@ -1,8 +1,8 @@
-// 📌 Escucha el evento de envío del formulario
-document.getElementById("registroForm").addEventListener("submit", async (e) => {
-  e.preventDefault(); // Evita que la página se recargue automáticamente
+const form = document.getElementById("form-registro");
 
-  // 📌 Tomar los valores del formulario
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
   const data = {
     nombre: document.getElementById("nombre").value,
     apellido: document.getElementById("apellido").value,
@@ -13,8 +13,8 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
   };
 
   try {
-    // 📌 Enviar datos al backend Node.js
-    const response = await fetch("http://localhost:8083/register", {
+    // ✅ Cambié mi_backend_node por localhost:8084
+    const response = await fetch("http://localhost:8084/registro", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -22,7 +22,7 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
 
     if (response.ok) {
       alert("✅ Registro exitoso");
-      window.location.href = "index.html"; // Redirigir a login
+      window.location.href = "/principal.html"; // Redirige después de registrar
     } else {
       const errorData = await response.json();
       alert("❌ Error: " + (errorData.message || "No se pudo registrar"));
@@ -32,3 +32,6 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
     alert("⚠️ No se pudo conectar con el servidor");
   }
 });
+
+
+
