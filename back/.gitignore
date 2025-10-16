@@ -4,7 +4,6 @@ cat > .gitignore << 'EOF'
 Tumbs.db
 .vscode/
 .idea/
-node_modules/
 vendor/
 *.sql
 *.swp
