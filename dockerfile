@@ -1,13 +1,11 @@
-FROM php:8.1-apache
+# Imagen base de Apache oficial
+FROM httpd:2.4
 
-# Instalar extensiones necesarias para MySQL
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Copiar la configuración personalizada
+COPY ./back/default.conf /usr/local/apache2/conf/httpd.conf
 
-# Habilitar mod_rewrite
-RUN a2enmod rewrite
+# Copiar todo el frontend a la carpeta pública
+COPY ./frontend /usr/local/apache2/htdocs
 
-# Copiar configuración personalizada de Apache
-COPY ./back/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 
-# Copiar el proyecto al contenedor
-COPY . /var/www/frontend/
+

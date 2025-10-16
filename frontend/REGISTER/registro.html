@@ -11,8 +11,9 @@
     <div class="form-registro">
       <h2>Registro de Cuenta</h2>
       <p>Completa los siguientes campos para crear tu cuenta</p>
-<!-- ✅ http://<TU-IP-PUBLICA>:8080/back/registro.php -->
-      <form action="http://localhost:8080/back/registro.php" method="POST">
+
+      <!-- ✅ Formulario sin action ni JS interno -->
+      <form id="form-registro">
         <label for="nombre">Nombre*</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -36,13 +37,15 @@
 
       <p class="registro-pequeño">
         ¿Ya tienes cuenta?
-        <a href="index.html" class="link-pequeño">Inicia Sesión</a>
+        <a href="/REGISTER/index.html" class="link-pequeño">Inicia Sesión</a>
       </p>
     </div>
   </section>
+
+  <!-- ✅ Conectamos con tu script externo -->
+  <script src="registro.js"></script>
 </body>
 </html>
-
 
 
 

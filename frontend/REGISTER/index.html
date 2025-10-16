@@ -8,18 +8,12 @@
 </head>
 <body>
 
-  <!-- Encabezado con íconos -->
-  <header>
-    <div class="nav-left">
-      <!-- 🔙 Icono de la casa que lleva al inicio -->
+  <!-- Encabezado -->
   <header>
     <div class="nav-left">
       <svg class="icono-nav" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
       </svg>
-    </div>
-    <div class="nav-right"></div>
-  </header>
     </div>
     <div class="nav-center">CAMPUS-ONE</div>
     <div class="nav-right">
@@ -33,9 +27,7 @@
   </header>
 
   <!-- Franja blanca con imagen de fondo -->
-  <section class="banner">
-    <!-- Fondo en CSS -->
-  </section>
+  <section class="banner"></section>
 
   <!-- Formulario -->
   <section class="login-bottom">
@@ -43,8 +35,7 @@
       <h2>¡BIENVENIDO!</h2>
       <p>Ingresa tus datos para iniciar sesión</p>
       
-      <!-- ✅ Ahora apunta a login.php --><!-- ✅ http://<TU-IP-PUBLICA>:8080/back/login.php -->
-      <form action="http://localhost:8080/back/login.php" method="POST"> 
+      <form id="form-login">
         <label for="id_usuario">Usuario (ID Usuario)</label>
         <input type="text" id="id_usuario" name="id_usuario" required />
 
@@ -56,14 +47,18 @@
       
       <p class="registro-pequeño">
         ¿No tienes cuenta?
-        <a href="../../frontend/REGISTER/registro.html" class="link-pequeño">Registrarse</a>
+        <a href="/REGISTER/registro.html" class="link-pequeño">Registrarse</a>
       </p>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <!-- 👇 Cambiamos a login.js -->
+  <script src="login.js"></script>
 </body>
 </html>
+
+
+
 
 
 

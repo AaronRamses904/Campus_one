@@ -1,44 +1,39 @@
 version: '3.8'
 
 services:
-  web:
-    build: .
-    container_name: mi_apache_php
+  backend:
+    build: ./back                # Carpeta donde está tu backend Node.js
+    container_name: mi_backend_node
+    ports:
+      - "5000:5000"              # Puerto de tu API Node
+    volumes:
+      - ./back:/usr/src/app
+    depends_on:
+      - mongo
+
+  frontend:
+    image: nginx:alpine          # Nginx como servidor de frontend
+    container_name: mi_frontend
     ports:
       - "8080:80"
     volumes:
-      - ./:/var/www/frontend      # el codigo que registra todo mi php y el index
-    depends_on:
-      - db
-
-  db:
-    image: mysql:5.7
-    container_name: mi_mysql
+      - ./frontend:/usr/share/nginx/html
+      - ./back/default.conf:/etc/nginx/conf.d/default.conf  # ⚡ Usa tu config personalizada
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example123
-      MYSQL_DATABASE: mi_basedatos
-      MYSQL_USER: usuario
-      MYSQL_PASSWORD: pass123
-    ports:
-      - "3307:3306"              # mi contenedor de 3307:3306
-    volumes:
-      - db_data:/var/lib/mysql
-      - ./sql:/docker-entrypoint-initdb.d   # mi base de datos sql
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: mi_phpmyadmin
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: example123
+  mongo:
+    image: mongo:latest
+    container_name: mi_mongo
+    restart: always
     ports:
-      - "8081:80"
-    depends_on:
-      - db
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
 
 volumes:
-  db_data:
+  mongo_data:
+
+
 
 
 
