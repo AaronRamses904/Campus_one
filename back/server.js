@@ -12,6 +12,7 @@ const app = express();
 // ✅ Middlewares
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // para formularios por si acaso
 
 // ✅ Conexión a MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
@@ -32,19 +33,21 @@ const Usuario = mongoose.model("Usuario", userSchema);
 
 // ✅ Ruta para registrar usuario
 app.post("/registro", async (req, res) => {
+  console.log("Datos recibidos en /registro:", req.body); // 🔹 Depuración
   try {
     const nuevo = new Usuario(req.body);
     await nuevo.save();
     console.log("👤 Usuario registrado:", nuevo.id_usuario);
     res.status(200).json({ mensaje: "Usuario registrado correctamente ✅" });
   } catch (err) {
-    console.error("❌ Error al registrar:", err);
+    console.error("❌ Error al registrar:", err.message);
     res.status(400).json({ error: "No se pudo registrar: " + err.message });
   }
 });
 
 // ✅ Ruta para iniciar sesión
 app.post("/login", async (req, res) => {
+  console.log("Datos recibidos en /login:", req.body); // 🔹 Depuración
   try {
     const { id_usuario, password } = req.body;
     const user = await Usuario.findOne({ id_usuario, password });
@@ -62,10 +65,11 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// ✅ Iniciar servidor (importante: usar 0.0.0.0 para Docker)
-const PORT = process.env.PORT || 8083;
+// ✅ Iniciar servidor
+const PORT = process.env.PORT || 8084;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Servidor escuchando en puerto ${PORT}`);
 });
+
 
 

@@ -4,12 +4,13 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const data = {
-    id_usuario: document.getElementById("id_usuario").value,
-    password: document.getElementById("password").value
+    id_usuario: document.getElementById("id_usuario").value.trim(),
+    password: document.getElementById("password").value.trim()
   };
 
+  console.log("Datos enviados al login:", data); // Depuración
+
   try {
-    // ✅ Usa localhost en lugar de mi_backend_node
     const response = await fetch("http://localhost:8084/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -17,19 +18,20 @@ form.addEventListener("submit", async (e) => {
     });
 
     const result = await response.json();
-
     if (response.ok) {
       alert("✅ " + result.mensaje);
-      // Redirige a la página principal
-      window.location.href = "../principal.html";
+      // 🔹 Redirigir a inicio.html después del login
+      window.location.href = "../inicio.html";
     } else {
       alert("❌ " + (result.error || "Usuario o contraseña incorrectos"));
     }
   } catch (error) {
     console.error("Error al conectar con el servidor:", error);
-    alert("❌ Error de conexión con el servidor.");
+    alert("⚠️ Error de conexión con el servidor.");
   }
 });
+
+
 
 
 

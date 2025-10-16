@@ -3,7 +3,7 @@ services:
     build: ./back
     container_name: mi_backend_node
     ports:
-      - "8084:8083"
+      - "8084:8084"
     env_file:
       - ./back/.env
     volumes:

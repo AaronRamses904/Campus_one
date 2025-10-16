@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Exponer el puerto del servidor Express
-EXPOSE 8083
+EXPOSE 8084
 
 # Comando de inicio
 CMD ["node", "server.js"]
