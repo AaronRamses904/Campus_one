@@ -14,7 +14,7 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
 
   try {
     // 📌 Enviar datos al backend Node.js
-    const response = await fetch("http://localhost:8083/api/register", {
+    const response = await fetch("http://localhost:8083/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
