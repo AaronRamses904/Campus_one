@@ -12,7 +12,7 @@ form.addEventListener("submit", async (e) => {
     password: document.getElementById("password").value.trim()
   };
 
-  console.log("Datos a enviar:", data); // 🔹 Depuración
+  console.log("Datos a enviar:", data); //  Depuración
 
   try {
     const response = await fetch("http://localhost:8084/registro", {

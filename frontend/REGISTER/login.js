@@ -20,7 +20,7 @@ form.addEventListener("submit", async (e) => {
     const result = await response.json();
     if (response.ok) {
       alert("✅ " + result.mensaje);
-      // 🔹 Redirigir a inicio.html después del login
+      //  Redirigir a inicio.html después del login
       window.location.href = "../inicio.html";
     } else {
       alert("❌ " + (result.error || "Usuario o contraseña incorrectos"));
